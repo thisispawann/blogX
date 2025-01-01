@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/users")
@@ -34,7 +33,7 @@ public class UserController {
 
     @DeleteMapping("/{userId}")
     public ResponseEntity<ApiResponse> deleteUser(@PathVariable("userId") Integer uid) {
-        this.deleteUser(uid); // Assuming this method performs the deletion logic
+        this.userService.deleteUser(uid);
         return new ResponseEntity<>(new ApiResponse("User Deleted Successfully"), HttpStatus.OK);
     }
 
